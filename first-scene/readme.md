@@ -23,7 +23,7 @@ npm init -y
 </head>
 <body>
     <script type="module">
-        import * as THREE from "https://unpkg.com/three@0.174.0/build/three.module.js";
+        import * as THREE from "https://esm.sh/three@0.174.0/build/three.module.js";
 
         console.log(THREE);
     </script>
@@ -55,7 +55,7 @@ npx live-server
     <script type="importmap">
     {
         "imports": {
-            "three": "https://unpkg.com/three@0.174.0/build/three.module.js"
+            "three": "https://esm.sh/three@0.174.0/build/three.module.js"
         }   
     }
     </script>
