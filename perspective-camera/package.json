@@ -1,0 +1,15 @@
+{
+  "name": "perspective-camera",
+  "version": "1.0.0",
+  "description": "对于刚接触 Three.js 的同学来说，透视相机的视椎体确实是个比较难理解的概念。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/three": "^0.175.0"
+  }
+}

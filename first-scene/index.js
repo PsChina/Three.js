@@ -27,6 +27,7 @@ const scene = new THREE.Scene();
 }
 
 {
+    // 坐标系
     const axesHelper = new THREE.AxesHelper(200);
     scene.add(axesHelper)
 }
