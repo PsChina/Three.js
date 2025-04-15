@@ -4,16 +4,16 @@
 
 你在 Three.js 文档搜 Geometry 就可以看到：
 
-![alt text](image.png)
+![alt text](./images/image.png)
 
 比如圆柱几何体 CylinderGeometry：
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 球几何体 SphereGeometry：
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 平面几何体 PlaneGeometry：
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 你在左上角都可以看到它们继承自 BufferGeometry：
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 它是所有几何体的父类。
 
@@ -29,34 +29,34 @@
 
 比如 PlaneGeometry 有 4 个顶点：
 
-![alt text](image-5.png)
+![alt text](./images/image-5.png)
 
 BoxGeometry 有 8 个顶点：
-![alt text](image-6.png)
+![alt text](./images/image-6.png)
 对，但不全对。
 
 Mesh 是网格模型，网格是什么含义呢，就是三角形。
 
 平面几何体有 2 个三角形，所以是 6 个顶点：
 
-![alt text](image-7.png)
+![alt text](./images/image-7.png)
 
 立方体有 6 个面，那就是 36 个顶点：
 
-![alt text](image-8.png)
+![alt text](./images/image-8.png)
 
 其实 __3D 里所有的物体都是三角形组成的，也就是网格模型。__
 
 
 圆柱也是由多个三角形组成，当分段多了，看起来就比较圆了：
 
-![alt text](image-9.png)
+![alt text](./images/image-9.png)
 
-![alt text](image-10.png)
+![alt text](./images/image-10.png)
 
 后面我们会导入外部模型：
 
-![alt text](image-11.png)
+![alt text](./images/image-11.png)
 
 形状再复杂的网格模型也是由三角形构成。
 
@@ -64,7 +64,7 @@ Mesh 是网格模型，网格是什么含义呢，就是三角形。
 
 Three.js 内置的这些几何体都是 __顶点 ——> 三角形 ——> 几何体__ 这样构成的：
 
-![alt text](image-12.png)
+![alt text](./images/image-12.png)
 
 当你想自定义其他形状的几何体，就可以用 BufferGeometry 来自己通过顶点构造了。
 
@@ -188,12 +188,12 @@ export default mesh;
 
 变量名 vertices 就是顶点的意思：
 
-![alt text](image-13.png)
+![alt text](./images/image-13.png)
 
 
 这里的 Float32Array 是 JS 提供的 TypedArray 相关 api 中的一个：
 
-![alt text](image-14.png)
+![alt text](./images/image-14.png)
 
 JS 提供了 ArrayBuffer 用来存储二进制数据，而 TypedArray 可以用不同的类型来读写这个 ArrayBuffer，比如 Uint8Array 是无符号整数为单位读写。
 
@@ -208,7 +208,7 @@ JS 提供了 ArrayBuffer 用来存储二进制数据，而 TypedArray 可以用�
 npx live-server
 ```
 
-![alt text](image-15.png)
+![alt text](./images/image-15.png)
 
 可以看到 6 个顶点构成了 2 个三角形。
 
@@ -220,10 +220,10 @@ Three.js 提供的各种 Geometry 就是设置不同的顶点数据来画出来�
 
 平面几何体就是 2 个三角形，也就是 6 个顶点：
 
-![alt text](image-16.png)
+![alt text](./images/image-16.png)
 
 我们先画一个三角形：
-![alt text](image-17.png)
+![alt text](./images/image-17.png)
 
 ```js
 const vertices = new Float32Array([
@@ -235,12 +235,12 @@ const vertices = new Float32Array([
 
 看下效果：
 
-![alt text](image-18.png)
+![alt text](./images/image-18.png)
 
 
 再来画一个三角形：
 
-![alt text](image-19.png)
+![alt text](./images/image-19.png)
 
 
 ```js
@@ -256,26 +256,26 @@ const vertices = new Float32Array([
 ```
 
 看下效果：
-![alt text](image-20.png)
+![alt text](./images/image-20.png)
 
 
 这样 PlaneGeometry 就实现了。
 
-![alt text](image-21.png)
+![alt text](./images/image-21.png)
 
 可以在材质里开启 wireframe，展示线框：
 
-![alt text](image-22.png)
+![alt text](./images/image-22.png)
 
-![alt text](image-23.png)
+![alt text](./images/image-23.png)
 
 可以看到，确实是两个三角形构成的。
 
 这两个三角形的 6 个顶点，有两个是重合的：
-![alt text](image-24.png)
+![alt text](./images/image-24.png)
 
 数据里也重复了两份：
-![alt text](image-25.png)
+![alt text](./images/image-25.png)
 
 这样存的话，如果是一个很大的几何体，那是不是就重复存储了很多数据？
 
@@ -286,7 +286,7 @@ const vertices = new Float32Array([
 比如上面一共 4 个顶点，然后存一份顶点索引：0、1、2、2、1、3 就可以了
 
 这样写：
-![alt text](image-26.png)
+![alt text](./images/image-26.png)
 
 把 geometry.attributes.position 里重复的两个顶点删掉，然后加一份索引数据，设置到 geometry.index
 
@@ -336,7 +336,7 @@ geometry.index = new THREE.BufferAttribute(indexes, 1);
 ```
 
 看下效果：
-![alt text](image-27.png)
+![alt text](./images/image-27.png)
 
 可以看到，渲染是对的。
 
@@ -362,10 +362,10 @@ export default mesh;
 画一个 PlaneGeometry，打印下这个网格模型。
 
 在 index.js 里引入：
-![alt text](image-28.png)
+![alt text](./images/image-28.png)
 
 页面打开 devtools 看下：
-![alt text](image-29.png)
+![alt text](./images/image-29.png)
 
 可以看到，网格模型的 geometry.attributes.position 存了顶点数据，geometry.index 存了顶点索引数据。
 
@@ -373,11 +373,11 @@ export default mesh;
 
 然后展开看下：
 
-![alt text](image-30.png)
+![alt text](./images/image-30.png)
 
 可以看到，geometry.attributes.position 存了 4 个顶点数据。
 
-![alt text](image-31.png)
+![alt text](./images/image-31.png)
 geometry.index 存了 6 个顶点索引，刚好构成 2 个三角形。
 
 和我们自己实现的 PlaneGeometry 一模一样。
@@ -403,16 +403,16 @@ console.log(mesh);
 
 export default mesh;
 ```
-![alt text](image-32.png)
+![alt text](./images/image-32.png)
 打开 devtools 看下：
-![alt text](image-33.png)
+![alt text](./images/image-33.png)
 首先 geometry.attributes.position 存了 24 个顶点，因为一个面 4 个。
-![alt text](image-34.png)
+![alt text](./images/image-34.png)
 
 然后 geometry.index 存了 36 个顶点索引，刚好构成 12 个三角形，每个面 2 个三角形构成。
 
 把材质改为不受光照影响的 MeshBasicMaterial，然后显示线框：
-![alt text](image-35.png)
+![alt text](./images/image-35.png)
 
 ```js
 const material = new THREE.MeshBasicMaterial(({
@@ -420,7 +420,7 @@ const material = new THREE.MeshBasicMaterial(({
     wireframe: true
 }));
 ```
-![alt text](image-37.awebp)
+![alt text](./images/image-37.awebp)
 可以看到，确实是 12 个三角形，每个面 2 个。
 
 这样，我们就可以通过 BufferGeometry 和顶点数据来创建任意几何体了。
