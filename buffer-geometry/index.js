@@ -2,10 +2,11 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import mesh from './mesh.js'
 import mesh2 from './mesh2.js'
+import mesh3 from './mesh3.js'
 
 const scene = new THREE.Scene()
 
-scene.add(mesh2)
+scene.add(mesh3)
 
 const pointLight = new THREE.PointLight(0xffffff, 10000);
 
