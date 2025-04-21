@@ -125,3 +125,79 @@ export default points;
 npx live-server
 ```
 ![alt text](image.png)
+可以看到，在这 5 个顶点渲染了 5 个点，而不是连成三角形。
+
+很多业务场景，是需要渲染点模型的，比如一些点云的业务。
+
+![alt text](image-1.png)
+
+点云就是通过设备扫描出一堆点的坐标和颜色等，然后用 three.js 在网页渲染出来。
+
+比如这样：
+![alt text](image-2.png)
+
+## 线模型
+然后再来试下线模型：
+
+创建 line.js
+
+```js
+import * as THREE from 'three';
+
+const geometry = new THREE.BufferGeometry();
+
+const vertices = new Float32Array([
+    0, 0, 0,
+    100, 0, 0,
+    0, 100, 0,
+    0, 0, 100,
+    100, 100, 0
+]);
+const attribute = new THREE.BufferAttribute(vertices, 3);
+geometry.attributes.position = attribute;
+
+const material = new THREE.LineBasicMaterial({
+    color: new THREE.Color('orange')
+});
+const line = new THREE.Line(geometry, material);
+
+export default line;
+
+```
+几何体不变，把材质换成 LineBasicMaterial，然后创建 Line
+
+![alt text](iamge-4.awebp)
+
+在 index.js 里引入，然后注释掉 AxesHelper
+
+可以看到，确实是把这 5 个点连成了 4 条线。
+
+如果你想收尾相连的话，可以用 LineLoop
+
+![alt text](image-4.png)
+
+![alt text](image-5.awebp)
+
+或者想每两个点一条线段的话，可以用 LineSegments：
+
+
+![alt text](image-5.png)
+
+![alt text](image-6.awebp)
+
+这里只有 5 个点，所以是两条线段
+
+再随便加一个点：
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
+就是三条线段了。
+
+线模型有 Line、LineLoop、LineSegments 这三种。
+
+总之，__一堆顶点数据，可以每三个连成一个三角形，然后构成网格模型，绝大多数情况下我们都是用网格模型。__
+
+__也可以单独渲染点，就是点模型，还可以连成线，就是线模型。__
+
