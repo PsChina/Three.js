@@ -1,0 +1,15 @@
+{
+  "name": "mountain-terrain",
+  "version": "1.0.0",
+  "description": "学完顶点和网格模型之后，我们来做一个实战：生成山脉地形。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/three": "^0.175.0"
+  }
+}
